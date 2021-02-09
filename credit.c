@@ -20,15 +20,15 @@ int main (void)
     }
     while (digit < 0);
     
-    if (checksum(digit) && prefix(digit) == 1 && length(digit) == 1)
+    if (checksum(digit) && prefix(digit) == 1 && length(digit))
     {
         printf("AMEX\n");
     }
-    else if (checksum(digit) && prefix(digit) == 2 && length(digit) == 2)
+    else if (checksum(digit) && prefix(digit) == 2 && length(digit))
     {
         printf("MASTERCARD\n");
     }
-    else if (checksum(digit) && prefix(digit) == 3 && length(digit) >= 2)
+    else if (checksum(digit) && prefix(digit) == 3 && length(digit))
     {
         printf("VISA\n");
     }
@@ -49,17 +49,9 @@ int length (long digit)
         digit = digit / 10;
         i++;
     }
-    if (i == 15)
+    if (i == 13 || i == 15 || i == 16)
     {
         return 1;
-    }
-    if (i == 16)
-    {
-        return 2;
-    }
-    if (i == 13)
-    {
-        return 3;
     }
     else 
     {
